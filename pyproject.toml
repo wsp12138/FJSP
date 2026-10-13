@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ours-fjsp"
+version = "0.1.0"
+description = "Joint matching PPO for dynamic flexible job-shop scheduling"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = ["numpy>=1.24", "torch>=2.2", "PyYAML>=6.0"]
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[project.scripts]
+ours-train = "ours_fjsp.train:main"
+ours-evaluate = "ours_fjsp.evaluate:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
